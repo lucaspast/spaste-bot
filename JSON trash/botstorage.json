@@ -1,0 +1,49 @@
+{
+  "badwords": {
+    "badwords": [
+      "kkr",
+      "kanker",
+      "debiel",
+      "tering"
+    ]
+  },
+  "embed": {
+    "title": "mr. spast help",
+    "description": "all commands:",
+    "color": 2206241,
+    "fields": [
+      {
+        "name": "'*message*'' let the bot send a DM to someone",
+        "value": "<message [recipient] [message]"
+      },
+      {
+        "name": "'*randomnumber*' generates a random number",
+        "value": "<randomNumber max [limit]"
+      },
+      {
+        "name": "'*gif*'searches for a random poison with a search term",
+        "value": "<gif [search term]"
+      },
+      {
+        "name": "'*nick*' adjust your own or someone else's nick",
+        "value": "<nick [mention] [nick]"
+      },
+      {
+        "name": "'*ban*' ban someone with or without reason",
+        "value": "<ban [mention] [reason]\n<ban [mention]"
+      },
+      {
+        "name": "'*kick*' kick somebody",
+        "value": "<kick [mention]"
+      },
+      {
+        "name": "'*giverole* give someone a role",
+        "value": "'<giverole [role] [mention]'"
+      },
+      {
+        "name": "'*removerole*' take away someone's role",
+        "value": "'<removerole [role] [mention]'"
+      }
+    ]
+  }
+}

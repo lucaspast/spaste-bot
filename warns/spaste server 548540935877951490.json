@@ -1,0 +1,18 @@
+{
+    "warns": [
+        {
+            "numberWa": 0,
+            "warn": {
+                "mod": "<@!704740629741043752>",
+                "reason": "skippen"
+            }
+        },
+        {
+            "numberWa": 1,
+            "warn": {
+                "mod": "<@!704740629741043752>",
+                "reason": "spam moet in spam"
+            }
+        }
+    ]
+}

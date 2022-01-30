@@ -1,0 +1,8 @@
+{
+    "welcomeChannel": {
+        "id": "795644933075632139",
+        "name": "join-logg",
+        "hello": "{user} welkom bij het spasten leger!",
+        "autoRole": "spasten"
+    }
+}

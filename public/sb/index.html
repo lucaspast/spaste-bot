@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>sb submit page</title>
+    <link rel="shortcut icon" type="image/png" href='../images/favicon_index.png'>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body>
+    <script src="./index.js"></script>
+    <div id='header'>
+        <header>
+            <h1 id="header_text">
+                <a>soundboard submit page</a>
+            </h1>
+        </header>
+    </div>
+    <div id="mainDiv">
+        <label for="sb_sound" id="sb_soundbutton">Select a video file</label>
+        <input type="file" id="sb_sound" name="sb_sound" accept="video/*" onchange="display()">
+
+        <input type="text" id="sb_description" name="sb_description" placeholder="description of the sound">
+
+        <input type="text" id="sb_GuildID" name="sb_GuildID" placeholder="Guild ID">
+        <br>
+
+        <div id="infoFile">
+            <a id="name">
+                name: none
+            </a>
+            <br>
+            <a id="size">
+                size: none (max. 19.4mb)
+            </a>
+            <br>
+        </div>
+
+        <br>
+        <div id="submitDiv">
+            <button class='cmdButton' id='submitBTN' onclick="submitcheck()">submit</button>
+        </div>
+        <div id="PDisplayfail">
+
+        </div>
+        <div id="PDisplaysuc">
+        </div>
+    </div>
+</body>
+
+</html>
