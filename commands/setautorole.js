@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
         return message.channel.send({ embed: { color: "RED", description: "you can't use this command!" } });
     }
 
-    let args = message.content.split('setautorole ');
+    //let args = message.content.split('setautorole ');
     let roleName = args[1];
     if (!roleName) return message.channel.send({ embed: { color: "RED", description: "You need to input a role name!" } });
 

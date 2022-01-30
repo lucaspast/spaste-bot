@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
     }
 
 
-    let args = message.content.split('setwelcomemessage ');
+    //let args = message.content.split('setwelcomemessage ');
     let hellosentence = args[1];
     if (!hellosentence) return message.channel.send({ embed: { color: "RED", description: "You need to input a welcome sentence!" } });
 

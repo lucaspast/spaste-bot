@@ -2,7 +2,7 @@ const fs = require('fs');
 
 exports.run = async (client, message, args) => {
     try {
-        let args = message.content.split("setstatus ");
+        //let args = message.content.split("setstatus ");
         const activity = args[1];
         if (!activity) {
             message.channel.send({ embed: { color: "RED", description: "pls geef een status op na de command" } })

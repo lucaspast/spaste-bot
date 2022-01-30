@@ -1,5 +1,5 @@
 exports.run = async (client, message, args) => {
-    let args = message.content.split(" ");
+    //let args = message.content.split(" ");
     const testtot = args[1];
     if (testtot === "max") {
         const randomlimiet = args[2];

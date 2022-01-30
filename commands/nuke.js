@@ -3,7 +3,7 @@ exports.run = async (client, message, args) => {
     let i = 0;
     let SMember = false;
     let SCount = false;
-    let args = message.content.split(" ");
+    //let args = message.content.split(" ");
     if (!message.member.hasPermission('MANAGE_MESSAGES')) {
         return message.channel.send("you can't use this command!");
     }

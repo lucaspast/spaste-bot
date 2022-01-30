@@ -1,19 +1,33 @@
-exports.run = async (client, message, args) => {
-    if (!message.member.hasPermission('BAN_MEMBERS'))
-        return message.channel.send({ embed: { color: "RED", description: "You can't use this command!" } });
-    let guild = message.guild;
-    let member = message.mentions.members.first();
-    if (!member) return message.channel.send({ embed: { color: "RED", description: "You need to input a user!" } });
+exports.run = async (interaction) => {
+    //if (!message.member.hasPermission('BAN_MEMBERS'))
+    //return message.channel.send({ embed: { color: "RED", description: "You can't use this command!" } });
+    let guild = interaction.guild;
+    let member = interaction.options.getMember('user');
 
-    let reason = message.content.slice(28);
+    let reason = interaction.options.getString('reason');
     if (!reason) reason = "undefined";
 
-    member.send(`You where band from **${guild}** by ${message.author} reason:** ${reason}**`)
+    member.send(`You where band from **${guild.name}** by ${interaction.member.user.username} reason:** ${reason}**`)
         .then(() => {
             member.ban()
+                .then(() => {
+                    interaction.reply('member banned!')
+                })
                 .catch(err => {
-                    console.error(err);
-                    message.channel.send({ embed: { color: "RED", description: "error uhg!" } });
+
                 })
         })
 };
+
+const { SlashCommandBuilder } = require('@discordjs/builders');
+exports.slashcmdInfo = new SlashCommandBuilder()
+    .setName('ban')
+    .setDescription('Ban a member from the server!')
+    .addUserOption(option =>
+        option.setName('user')
+            .setDescription('The member you want to ban.')
+            .setRequired(true))
+    .addStringOption(option =>
+        option.setName('reason')
+            .setDescription('The reason for banning the user.')
+            .setRequired(false));

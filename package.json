@@ -2,9 +2,9 @@
   "name": "spaste-bot-v2",
   "version": "1.0.0",
   "description": "",
-  "main": "commandlinecheck.js",
+  "main": "index.js",
   "scripts": {
-    "test": "node commandlinecheck.js 2"
+    "test": "node index.js"
   },
   "author": "Luca Ramboer",
   "license": "ISC",
