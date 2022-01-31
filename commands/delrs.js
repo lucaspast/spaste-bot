@@ -1,13 +1,13 @@
 const jsonSaver = require('../jsonsaver.js');
 const fs = require('fs');
 
-exports.run = async (client, message, args) => {
-    if (!args[0]) return message.channel.send('pls provide a reaction role message ID!');
-    const guild = message.guild;
-    if (fs.existsSync(`./rearoles/${guild.name} ${args[0]}.json`)) {
+exports.run = async (interaction) => {
+    let id = interaction.options.getString('id');
+    const guild = interaction.guild;
+    if (fs.existsSync(`./rearoles/${guild.name} ${id}.json`)) {
         guild.channels.cache.forEach(async channel => {
             if (channel.type == 'text') {
-                let msg = await channel.messages.fetch(args[0]).catch(err => { });
+                let msg = await channel.messages.fetch(id).catch(err => { });
                 if (!msg) return;
                 fs.unlinkSync(`./rearoles/${guild.name} ${msg.id}.json`);
                 msg.delete();
@@ -15,6 +15,15 @@ exports.run = async (client, message, args) => {
             }
         })
     } else {
-        return message.channel.send('The given message id is not recognized as a reaction role message id!');
+        return interaction.reply('The given message id is not recognized as a reaction role message id!');
     }
 };
+
+const { SlashCommandBuilder } = require('@discordjs/builders');
+exports.slashcmdInfo = new SlashCommandBuilder()
+    .setName('delrs')
+    .setDescription('delete a reaction role message!')
+    .addStringOption(option =>
+        option.setName('id')
+            .setDescription('The message id of the reaction role message.')
+            .setRequired(true));
