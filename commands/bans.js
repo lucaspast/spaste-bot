@@ -1,7 +1,8 @@
+const { Permissions } = require('discord.js');
 
 exports.run = async function (interaction) {
-    if (!interaction.member.hasPermission('BAN_MEMBERS'))
-        return interaction.reply({ embed: { color: "RED", description: "You can't use this command!" } });
+    if (!interaction.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS))
+        return interaction.reply("You can't use this command!");
     interaction.guild.fetchBans()
         .then(banned => {
             let list = banned.map(ban => `${ban.user.tag} : ${ban.user.id}`).join('\n');
