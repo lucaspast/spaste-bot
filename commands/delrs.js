@@ -1,7 +1,15 @@
 const jsonSaver = require('../jsonsaver.js');
 const fs = require('fs');
+const { Permissions } = require('discord.js');
 
 exports.run = async (interaction) => {
+    try {
+        if (!interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES))
+            return interaction.reply("You can't use this command!");
+    } catch (err) {
+        console.error(err);
+    };
+
     let id = interaction.options.getString('id');
     const guild = interaction.guild;
     if (fs.existsSync(`./rearoles/${guild.name} ${id}.json`)) {
