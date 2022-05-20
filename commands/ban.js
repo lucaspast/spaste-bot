@@ -1,12 +1,8 @@
 const { Permissions } = require('discord.js');
 
 exports.run = async (interaction) => {
-    try {
-        if (!interaction.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS))
-            return interaction.reply("You can't use this command!");
-    } catch (err) {
-        console.error(err);
-    };
+    if (!interaction.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS))
+        return interaction.reply("You can't use this command!");
     let guild = interaction.guild;
     let member = interaction.options.getMember('user');
 
